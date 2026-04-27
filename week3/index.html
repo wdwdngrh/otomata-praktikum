@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSM Visualizer Pro v3.1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>FSM Checker</h2>
+    <p class="subtitle">Ketentuan: Berakhiran <b>1</b> & Tanpa <b>00</b></p>
+
+    <input id="inp" placeholder="0101" maxlength="15" autocomplete="off">
+    <button onclick="runFSM()">Analisis String</button>
+
+    <div id="statusInfo" class="status-info">
+        <div class="status-label">Hasil Analisis</div>
+        <div id="statusMain" class="status-main">DITERIMA</div>
+        <div id="statusDesc" style="font-size: 13px;"></div>
+        <div id="trace"></div>
+    </div>
+</div>
+
+<div class="graph-container">
+    <div id="graph" class="mermaid">
+        %%{init: { 
+          'theme': 'dark', 
+          'flowchart': { 
+            'curve': 'basis',
+            'nodeSpacing': 70,
+            'rankSpacing': 100,
+            'padding': 10
+          } 
+        } }%%
+        graph LR
+          S((Start)) -- 0 --> A((A))
+          S -- 1 --> B(((B)))
+          A -- 0 --> T((Trap))
+          A -- 1 --> B
+          B -- 0 --> A
+          B -- 1 --> B
+          T -- 0,1 --> T
+
+          style B stroke-width:3px,stroke:#3fb950
+          style T fill:#3d1b1b,stroke:#f85149
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
