@@ -1,8 +1,8 @@
 Praktikum Otomata 
 Kelompok B16 
 
-| :---: | :---: | 
 | Nama | NRP |
+| :---: | :---: | 
 | Willy Dava Nugraha | 5025241090 |
 | Nyoman Surya Hutama Andyartha | 5025241093 |
 
